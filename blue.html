@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dhanush | Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #096B90;       /* Primary blue */
+            --secondary: #042844;     /* Dark navy */
+            --accent: #71B7D5;        /* Light blue */
+            --light: #A1CCDC;         /* Very light blue */
+            --dark: #08171E;          /* Darkest navy */
+            --gradient: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            --success: #28A745;
+            --warning: #FFC107;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            background-color: var(--dark);
+            color: #E0E0E0;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background: var(--secondary);
+            color: white;
+            padding: 2rem 0;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            border-bottom: 3px solid var(--accent);
+        }
+        
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxyZWN0IHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgZmlsbD0icmdiYSgxNjksMjE1LDIyMSwwLjA1KSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3QgZmlsbD0idXJsKCNwYXR0ZXJuKSIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIvPjwvc3ZnPg==');
+            z-index: -1;
+        }
+        
+        .header-content {
+            display: flex;
+            align-items: center;
+            text-align: left;
+            position: relative;
+            z-index: 2;
+            gap: 3rem;
+        }
+        
+        .profile-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .profile-img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            border: 5px solid var(--accent);
+            object-fit: cover;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+        
+        .header-text {
+            flex: 1;
+        }
+        
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+            color: white;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+        
+        .tagline {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 1.5rem;
+            max-width: 700px;
+            color: var(--light);
+        }
+        
+        .contact-info {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .contact-link {
+            color: var(--light);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(161, 204, 220, 0.1);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(113, 183, 213, 0.3);
+        }
+        
+        .contact-link:hover {
+            background: rgba(113, 183, 213, 0.2);
+            transform: translateY(-3px);
+            color: white;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .social-link {
+            color: var(--light);
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .social-link:hover {
+            transform: translateY(-3px) scale(1.1);
+            color: var(--accent);
+        }
+        
+        /* Section Styles */
+        section {
+            padding: 4rem 0;
+        }
+        
+        section:nth-child(even) {
+            background-color: var(--secondary);
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        h2 {
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--accent);
+            border-radius: 2px;
+        }
+        
+        .section-subtitle {
+            color: var(--light);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        
+        @media (max-width: 768px) {
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+        
+        .about-text p {
+            margin-bottom: 1rem;
+            color: #E0E0E0;
+        }
+        
+        .education-item {
+            background: rgba(4, 40, 68, 0.5);
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-bottom: 1.5rem;
+            border-left: 4px solid var(--accent);
+            transition: all 0.3s ease;
+            color: #E0E0E0;
+        }
+        
+        .education-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            background: rgba(4, 40, 68, 0.8);
+        }
+        
+        .education-item h3 {
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+        
+        .education-meta {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 0.5rem;
+            color: var(--light);
+            font-size: 0.9rem;
+        }
+        
+        /* Skills Section */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .skill-category {
+            background: rgba(4, 40, 68, 0.5);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            color: #E0E0E0;
+        }
+        
+        .skill-category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            background: rgba(4, 40, 68, 0.8);
+        }
+        
+        .skill-category h3 {
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .skill-list {
+            list-style: none;
+        }
+        
+        .skill-item {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .skill-item::before {
+            content: '▹';
+            color: var(--accent);
+        }
+        
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+        
+        .project-card {
+            background: rgba(4, 40, 68, 0.5);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            color: #E0E0E0;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+            background: rgba(4, 40, 68, 0.8);
+        }
+        
+        .project-img {
+            height: 200px;
+            width: 100%;
+            object-fit: cover;
+            background: #0A1E2C;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent);
+            font-size: 1.5rem;
+        }
+        
+        .project-content {
+            padding: 1.5rem;
+        }
+        
+        .project-content h3 {
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+        
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+        
+        .tech-tag {
+            background: rgba(113, 183, 213, 0.1);
+            color: var(--accent);
+            padding: 0.3rem 0.8rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            border: 1px solid rgba(113, 183, 213, 0.3);
+        }
+        
+        .project-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .project-link:hover {
+            color: white;
+        }
+        
+        /* Certifications Section */
+        .certifications-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .certification-card {
+            background: rgba(4, 40, 68, 0.5);
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            border-left: 4px solid var(--accent);
+            color: #E0E0E0;
+        }
+        
+        .certification-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            background: rgba(4, 40, 68, 0.8);
+        }
+        
+        .certification-card h3 {
+            margin-bottom: 0.5rem;
+            color: var(--accent);
+        }
+        
+        .certification-org {
+            color: var(--light);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Achievements Section */
+        .achievements-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .achievement-card {
+            background: rgba(4, 40, 68, 0.5);
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            text-align: center;
+            color: #E0E0E0;
+        }
+        
+        .achievement-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            background: rgba(4, 40, 68, 0.8);
+        }
+        
+        .achievement-icon {
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+        
+        .achievement-card h3 {
+            margin-bottom: 0.5rem;
+            color: var(--accent);
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--secondary);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+            border-top: 3px solid var(--accent);
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+            margin: 1.5rem 0;
+        }
+        
+        .footer-link {
+            color: var(--accent);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-link:hover {
+            color: white;
+        }
+        
+        .copyright {
+            opacity: 0.7;
+            font-size: 0.9rem;
+            color: var(--light);
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .animate {
+            animation: fadeIn 0.6s ease forwards;
+        }
+        
+        .delay-1 { animation-delay: 0.2s; }
+        .delay-2 { animation-delay: 0.4s; }
+        .delay-3 { animation-delay: 0.6s; }
+        
+        /* Button Styles */
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background: var(--accent);
+            color: var(--secondary);
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(113, 183, 213, 0.3);
+        }
+        
+        .btn:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(113, 183, 213, 0.4);
+            color: white;
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--accent);
+            color: var(--accent);
+            box-shadow: none;
+        }
+        
+        .btn-outline:hover {
+            background: var(--accent);
+            color: var(--secondary);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="profile-container animate">
+                    <img src="dhanush.jpg" class="profile-img">
+                </div>
+                <div class="header-text">
+                    <h1 class="animate delay-1">Dhanush</h1>
+                    <p class="tagline animate delay-1">Computer Science Engineer | Full Stack Developer | Cloud Enthusiast</p>
+                    <div class="contact-info animate delay-2">
+                        <a href="tel:+918428502521" class="contact-link">
+                            <i class="fas fa-phone"></i>
+                            <span>+91 8428502521</span>
+                        </a>
+                        <a href="mailto:dhanushmurugavel929@gmail.com" class="contact-link">
+                            <i class="fas fa-envelope"></i>
+                            <span>dhanushmurugavel929@gmail.com</span>
+                        </a>
+                        <a href="#" class="contact-link">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Padi, Chennai - 600050</span>
+                        </a>
+                    </div>
+                    <div class="social-links animate delay-3">
+                        <a href="https://github.com/Dhanush0209" target="_blank" class="social-link"><i class="fab fa-github"></i></a>
+                        <a href="https://www.linkedin.com/in/dhanushmurugavel" target="_blank" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://twitter.com/your_twitter" target="_blank" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/_cozdhanush_?igsh=MTI5eno1NXIxeHlsag==" target="_blank" class="social-link"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section id="about">
+        <div class="container">
+            <div class="section-header animate">
+                <h2>About Me</h2>
+                <p class="section-subtitle">Innovative thinker with exceptional logical and analytical skills</p>
+            </div>
+            <div class="about-content">
+                <div class="about-text animate delay-1">
+                    <p>An innovative thinker, initiative taker and multi-dimensional professional with exceptional logical and analytical skills. Experience in designing, developing, implementing and testing computer-based hardware and software.</p>
+                    <p>I am an ambitious, career-focused job seeker, anxious to obtain an entry-level position to help launch my career while achieving company goals.</p>
+                    <div class="project-links" style="margin-top: 2rem;">
+                        <a href="C:\Users\CISCO-15\Documents\1111\dhanushresume.pdf" class="btn">Download Resume</a>
+                        <a href="#contact" class="btn btn-outline">Contact Me</a>
+                    </div>
+                </div>
+                <div class="education animate delay-2">
+                    <div class="education-item">
+                        <h3>Mohamed Sathak Engineering</h3>
+                        <div class="education-meta">
+                            <span><i class="fas fa-graduation-cap"></i> B.E Computer Science</span>
+                            <span><i class="fas fa-calendar-alt"></i> 2021 - 2025</span>
+                        </div>
+                        <p><i class="fas fa-star"></i> CGPA: 7.79</p>
+                    </div>
+                    <div class="education-item">
+                        <h3>Technical Skills Highlights</h3>
+                        <p><i class="fas fa-code"></i> Full Stack Development (Django)</p>
+                        <p><i class="fas fa-mobile-alt"></i> App Development (Flutter)</p>
+                        <p><i class="fas fa-cloud"></i> Cloud Computing (AWS Certified)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <div class="container">
+            <div class="section-header animate">
+                <h2>My Skills</h2>
+                <p class="section-subtitle">Technologies and abilities I've mastered</p>
+            </div>
+            <div class="skills-container">
+                <div class="skill-category animate delay-1">
+                    <h3><i class="fas fa-laptop-code"></i> Technical Skills</h3>
+                    <ul class="skill-list">
+                        <li class="skill-item">Cloud Computing (AWS Certified)</li>
+                        <li class="skill-item">App Development (Flutter)</li>
+                        <li class="skill-item">Full Stack Development (Django)</li>
+                        <li class="skill-item">Data Science & Machine Learning</li>
+                        <li class="skill-item">Networking Basics</li>
+                        <li class="skill-item">Data Structures & Algorithms</li>
+                    </ul>
+                </div>
+                <div class="skill-category animate delay-2">
+                    <h3><i class="fas fa-user-tie"></i> Personal Skills</h3>
+                    <ul class="skill-list">
+                        <li class="skill-item">Excellent logical and analytical skills</li>
+                        <li class="skill-item">Strong leadership and motivation</li>
+                        <li class="skill-item">Ability to work under pressure</li>
+                        <li class="skill-item">Team player with individual work capability</li>
+                        <li class="skill-item">Problem-solving mindset</li>
+                        <li class="skill-item">Effective communication</li>
+                    </ul>
+                </div>
+                <div class="skill-category animate delay-3">
+                    <h3><i class="fas fa-heart"></i> Areas of Interest</h3>
+                    <ul class="skill-list">
+                        <li class="skill-item">Cloud Computing</li>
+                        <li class="skill-item">Data Science</li>
+                        <li class="skill-item">App Development</li>
+                        <li class="skill-item">Full Stack Development</li>
+                        <li class="skill-item">Artificial Intelligence</li>
+                        <li class="skill-item">Internet of Things</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <div class="container">
+            <div class="section-header animate">
+                <h2>My Projects</h2>
+                <p class="section-subtitle">Some of my recent work and accomplishments</p>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card animate delay-1">
+                    <div class="project-img">
+						<img src="C:\Users\CISCO-15\Documents\1111\xylo.jpg" alt="Xylophone App" class="project-thumbnail">
+					</div>
+						<div class="project-content">
+                        <h3>Xylophone App</h3>
+                        <p>Developed a basic musical instrument app using Flutter framework, showcasing mobile development skills.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Flutter</span>
+                            <span class="tech-tag">Dart</span>
+                            <span class="tech-tag">Mobile</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link"><i class="fab fa-github"></i> View Code</a>
+                            <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card animate delay-2">
+                    <div class="project-img">
+						<img src="C:\Users\CISCO-15\Documents\1111\ml.jpg" alt="Xylophone App" class="project-thumbnail">
+					</div>
+                    <div class="project-content">
+                        <h3>Dataset Analysis with ML</h3>
+                        <p>Implemented various machine learning algorithms to analyze datasets, demonstrating data science capabilities.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Scikit-learn</span>
+                            <span class="tech-tag">Pandas</span>
+                            <span class="tech-tag">Data Science</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link"><i class="fab fa-github"></i> View Code</a>
+                            <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card animate delay-3">
+                    <div class="project-img">
+						<img src="C:\Users\CISCO-15\Documents\1111\crud.jpg" alt="Xylophone App" class="project-thumbnail">
+					</div>
+                    <div class="project-content">
+                        <h3>CRUD Application</h3>
+                        <p>Built a full-stack application during internship at YALEITSKILLHUB using PyCharm.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Django</span>
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">HTML/CSS</span>
+                            <span class="tech-tag">Full Stack</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link"><i class="fab fa-github"></i> View Code</a>
+                            <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="certifications">
+        <div class="container">
+            <div class="section-header animate">
+                <h2>Certifications</h2>
+                <p class="section-subtitle">Professional certifications I've earned</p>
+            </div>
+            <div class="certifications-container">
+                <div class="certification-card animate delay-1">
+                    <h3>AWS Academy Graduate - Cloud Security Foundation</h3>
+                    <p class="certification-org">Amazon Web Services</p>
+                    <p>Fundamentals of cloud security concepts and AWS best practices.</p>
+                </div>
+                <div class="certification-card animate delay-2">
+                    <h3>ZOHO IBM Applied Data Science</h3>
+                    <p class="certification-org">IBM & ZOHO</p>
+                    <p>Practical data science skills with real-world applications.</p>
+                </div>
+                <div class="certification-card animate delay-3">
+                    <h3>Web Technology Full Stack using Django</h3>
+                    <p class="certification-org">TNSDC</p>
+                    <p>Comprehensive full-stack development with Django framework.</p>
+                </div>
+                <div class="certification-card animate delay-1">
+                    <h3>Cisco Network Essentials</h3>
+                    <p class="certification-org">Cisco (TNSDC)</p>
+                    <p>Fundamentals of networking concepts and infrastructure.</p>
+                </div>
+                <div class="certification-card animate delay-2">
+                    <h3>Microsoft Office 365 Productivity Suite</h3>
+                    <p class="certification-org">Microsoft (TNSDC)</p>
+                    <p>Mastery of Office 365 tools for professional productivity.</p>
+                </div>
+                <div class="certification-card animate delay-3">
+                    <h3>PERL Training</h3>
+                    <p class="certification-org">Spoken Tutorial IIT Bombay</p>
+                    <p>Programming skills in PERL language.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="achievements">
+        <div class="container">
+            <div class="section-header animate">
+                <h2>Achievements</h2>
+                <p class="section-subtitle">My notable accomplishments</p>
+            </div>
+            <div class="achievements-container">
+                <div class="achievement-card animate delay-1">
+                    <div class="achievement-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <h3>TCS National Qualifier Test</h3>
+                    <p>Scored <strong>72%</strong> in this prestigious national-level examination</p>
+                </div>
+                <div class="achievement-card animate delay-2">
+                    <div class="achievement-icon">
+                        <i class="fas fa-medal"></i>
+                    </div>
+                    <h3>Gold Medal - Badminton</h3>
+                    <p>Won gold medal at intra-college level tournament</p>
+                </div>
+                <div class="achievement-card animate delay-3">
+                    <div class="achievement-icon">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <h3>6 Professional Certifications</h3>
+                    <p>Earned multiple certifications in various technologies</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <h2 style="color: var(--accent); margin-bottom: 1.5rem;">Get In Touch</h2>
+                <p style="max-width: 600px; margin-bottom: 1.5rem;">I'm currently looking for new opportunities. Whether you have a question or just want to say hi, I'll get back to you as soon as possible!</p>
+                <a href="mailto:dhanushmurugavel929@gmail.com" class="btn">Contact Me</a>
+                <div class="social-links animate delay-3">
+                    <a href="https://github.com/Dhanush0209" target="_blank" class="social-link"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/dhanushmurugavel" target="_blank" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://twitter.com/your_twitter" target="_blank" class="social-link"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.instagram.com/_cozdhanush_?igsh=MTI5eno1NXIxeHlsag==" target="_blank" class="social-link"><i class="fab fa-instagram"></i></a>
+                </div>
+                <p class="copyright">© 2025 Dhanush. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple animation trigger on scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            const animateElements = document.querySelectorAll('.animate');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            animateElements.forEach(element => {
+                element.style.opacity = 0;
+                element.style.transform = 'translateY(20px)';
+                element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(element);
+            });
+        });
+    </script>
+</body>
+</html>
